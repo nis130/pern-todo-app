@@ -7,7 +7,7 @@ const InputTodo = () => {
     e.preventDefault();
     try {
       const body = { description };
-      const response = await fetch(`http://172.19.0.3:3000/todos`, {
+      const response = await fetch(`http://localhost:3000/todos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -18,7 +18,7 @@ const InputTodo = () => {
       console.error(err.message);
     }
     console.log("host: ", process.env.SERVER_HOST);
-    console.log(`url dekho: http://172.19.0.3:3000/todos`)
+    console.log(`url dekho: http://localhost:3000/todos`)
   };
 
   return (
