@@ -36,6 +36,14 @@ app.get("/todos", async (req, res) => {
   }
 });
 
+app.get("/host", async (req, res) => {
+    var host = process.env.POSTGRES_HOST;
+    jo = {
+      db_host: host,
+    }
+    res.json(jo);
+});
+
 //get a todo
 
 app.get("/todos/:id", async (req, res) => {
@@ -82,6 +90,6 @@ app.delete("/todos/:id", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("server has started on port 5000");
+app.listen(3000, () => {
+  console.log("server has started on port 3000, host: ", process.env.POSTGRES_HOST);
 });

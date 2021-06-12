@@ -10,7 +10,7 @@ const EditTodo = ({ todo }) => {
     try {
       const body = { description };
       const response = await fetch(
-        `http://localhost:5000/todos/${todo.todo_id}`,
+        `http://172.19.0.3:3000/todos/${todo.todo_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -18,10 +18,13 @@ const EditTodo = ({ todo }) => {
         }
       );
 
+
       window.location = "/";
     } catch (err) {
       console.error(err.message);
     }
+    console.log("host: ", process.env.REACT_APP_HOST_IP_ADDRESS);
+    console.log(`url dekho: http://${process.env.API}:3000/todos`)
   };
 
   return (

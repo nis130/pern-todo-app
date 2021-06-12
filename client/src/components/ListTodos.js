@@ -9,7 +9,7 @@ const ListTodos = () => {
 
   const deleteTodo = async id => {
     try {
-      const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+      const deleteTodo = await fetch(`http://172.19.0.3:3000/todos/${id}`, {
         method: "DELETE"
       });
 
@@ -21,13 +21,15 @@ const ListTodos = () => {
 
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/todos");
+      const response = await fetch(`http://172.19.0.3:3000/todos`);
       const jsonData = await response.json();
 
       setTodos(jsonData);
     } catch (err) {
       console.error(err.message);
     }
+    console.log("host: ", process.env.REACT_APP_HOST_IP_ADDRESS);
+    console.log(`url dekho: http://172.19.0.3:3000/todos`)
   };
 
   useEffect(() => {
